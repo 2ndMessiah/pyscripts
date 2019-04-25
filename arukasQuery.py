@@ -8,7 +8,7 @@ serverchanaddr=serverchanaddr
 
 while True:
     try:
-        a=r.get('https://app.arukas.io/api/apps',auth=('apiID','apikey'))
+        a=r.get('https://app.arukas.io/api/apps',auth=(apiID,apikey))
         c = a.json()['included'][0]['attributes']['port-mappings'][0][portorder]
         break
     except:
@@ -18,7 +18,7 @@ addr='{}:{}'.format(c['host'],c['service-port'])
 if os.path.exists('./arukas.txt'):
     f=open('arukas.txt','r+')
     if f.readline() !=addr:
-        response = r.get('serverchanaddr',
+        response = r.get(serverchanaddr,
                          {'text': 'ARUKAS ALARM', 'desp': '{}:{}'.format(c['host'], c['service-port'])})
         f.truncate()
         f.write(addr)
@@ -27,7 +27,7 @@ else:
     f = open('arukas.txt', 'a+')
     f.write(addr)
     f.close()
-    response = r.get('aerverchanaddr',
+    response = r.get(aerverchanaddr,
                      {'text': 'ARUKAS ALARM', 'desp': '{}:{}'.format(c['host'], c['service-port'])})
 
 

@@ -1,7 +1,7 @@
 # coding=utf-8
 ''' 
 Arukas will randomly restart the apps that exceed the usage limitations set for free accounts, after which the app's service port and ip will be changed.
-This script helps to retrieve arukas app's ip and port, and forward to serverChan.
+This script helps to retrieve arukas app's ip and port, and forward to serverChan(http://sc.ftqq.com/).
 Since app.arukas.io is blocked, one might as deploy this in a VPS and use cron or any scheduled tasking mechanism to poll the info.
 Fill in the parameters in the header first.
 '''

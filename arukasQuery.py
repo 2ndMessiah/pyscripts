@@ -10,10 +10,10 @@ import requests as r
 import os
 
 #parameters 
-apiID=apiID
-apikey=apikey
+apiID='arukas TOKEN'
+apikey='arukas SECRET'
 portorder=-1
-serverchanaddr=serverchanaddr
+serverchanTOKEN='serverchanTOKEN'
 
 
 
@@ -29,7 +29,7 @@ addr='{}:{}'.format(c['host'],c['service-port'])
 if os.path.exists('./arukas.txt'):
     f=open('arukas.txt','r+')
     if f.readline() !=addr:
-        response = r.get(serverchanaddr,
+        response = r.get('https://sc.ftqq.com/{}.send'.format(serverchanTOKEN),
                          {'text': 'ARUKAS ALARM', 'desp': '{}:{}'.format(c['host'], c['service-port'])})
         f.truncate()
         f.write(addr)
@@ -38,7 +38,7 @@ else:
     f = open('arukas.txt', 'a+')
     f.write(addr)
     f.close()
-    response = r.get(aerverchanaddr,
+    response = r.get('https://sc.ftqq.com/{}.send'.format(serverchanTOKEN),
                      {'text': 'ARUKAS ALARM', 'desp': '{}:{}'.format(c['host'], c['service-port'])})
 
 

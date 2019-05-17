@@ -27,8 +27,8 @@ while True:
 
 
 addr='{}{}'.format(c['host'],c['service-port'])
-if os.path.exists('./arukas.txt'):
-    f=open('./arukas.txt','r+')
+if os.path.exists('/arukas.txt'):
+    f=open('/arukas.txt','r+')
     if f.readline() !=addr:
         response = r.get('https://sc.ftqq.com/{}.send'.format(serverchanTOKEN),
                          {'text': 'ARUKAS ALARM', 'desp': addr})
@@ -36,7 +36,7 @@ if os.path.exists('./arukas.txt'):
         f.write(addr)
     f.close()
 else:
-    f = open('arukas.txt', 'w')
+    f = open('/arukas.txt', 'w')
     f.write(addr)
     f.close()
     response = r.get('https://sc.ftqq.com/{}.send'.format(serverchanTOKEN),
